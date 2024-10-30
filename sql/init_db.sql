@@ -87,7 +87,7 @@ CREATE TABLE avis (
 
 CREATE TABLE participation(
     id_participation INT(11) AUTO_INCREMENT PRIMARY KEY,
-    data_heure DATETIME NOT NULL,
+    date_heure DATETIME NOT NULL,
     nombre_adultes INT(11) NOT NULL DEFAULT 0,
     nombre_enfants INT(11) NOT NULL DEFAULT 0,
     id_activite INT(11) NOT NULL,
