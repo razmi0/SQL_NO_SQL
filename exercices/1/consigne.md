@@ -15,14 +15,3 @@ Reprendre la conception du projet Camping
 
 - Récupérer l'ensemble des emplacements disponibles pour une période définie
 - Récupérer l'ensemble des données afin de générer une facture pdf par rapport à un Id Client et l'Id d'une commande
-
-## Requêtes de type Select :
-
--- - Récupérer l'ensemble des emplacements disponibles pour une période définie
--- - Récupérer l'ensemble des données afin de générer une facture pdf par rapport à un Id Client et l'Id d'une commande
-
----
-
-```
-
-```

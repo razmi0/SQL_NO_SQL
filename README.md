@@ -1,5 +1,7 @@
 # SQL NO SQL
 
+![sql](./cours/sql.jpeg)
+
 ## Notes
 
 - [init_db](./sql//init_db.sql) initialise les tables de la base de données ( à la mano)
@@ -14,9 +16,10 @@
 ## Repo structure
 
 ```plaintext
-
 📁 SQL_NO_SQL
     📁 cours
+        ─ pdf_conception_camping_TP.pdf
+        ─ sql.jpeg
     📁 exercices
         📁 1
             ─ consigne.md
@@ -25,8 +28,6 @@
     📁 sql
         ─ init_db.sql
         ─ migrate_dummy.sql
-    ─ .DS_Store
     ─ .gitignore
-    ─ pdf_conception_camping_TP.pdf
     ─ README.md
 ```
