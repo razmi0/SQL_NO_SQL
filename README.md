@@ -4,8 +4,23 @@
 
 ## Notes
 
-- [init_db](./sql//init_db.sql) initialise les tables de la base de données ( à la mano)
-- [migrate_dummy](./sql/migrate_dummy.sql) peuple la base de données ( à la mano)
+You can open a mariadb session in terminal with :
+
+```bash
+mysql -h 127.0.0.1 -P 3306 -u root  db_camping
+```
+
+## Scripts
+
+Run those utilitary scripts in your mariadb session with :
+
+```bash
+mysql -h 127.0.0.1 -P 3306 -u root  db_camping < path\to\file.sql
+```
+
+- [init_db](./sql/init_db.sql) initialise les tables de la db
+- [migrate_dummy](./sql/migrate_dummy.sql) peuple la db
+- [truncate_db](./sql/truncate_db.sql) vide la db
 
 ## Liens
 
