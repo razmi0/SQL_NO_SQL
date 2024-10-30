@@ -1,8 +1,7 @@
 # Création des tables
 
-## Sans clés étrangères
+# Sans clés étrangères
 
-```sql
 CREATE TABLE mode_paiement(
     id_mode_paiement INT(11) AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL
@@ -48,11 +47,9 @@ CREATE TABLE activite (
     duree INT(11) NOT NULL
 );
 
-```
 
 ## Creation table avec clés étrangeres
 
-```sql
 
 CREATE TABLE sejour(
     id_sejour INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -62,9 +59,6 @@ CREATE TABLE sejour(
     date_fin DATETIME NOT NULL,
     nombre_voitures INT(11) NOT NULL DEFAULT 0,
     nombre_animaux INT(11) NOT NULL DEFAULT 0,
-
-    # clé étrangère
-
     id_commande INT(11) NOT NULL,
     FOREIGN KEY (id_commande) REFERENCES commande(id_commande) ON DELETE CASCADE
 );
@@ -75,9 +69,6 @@ CREATE TABLE emplacement (
     prix_bs FLOAT(11, 2) NOT NULL,
     places INT(11) NOT NULL,
     caution FLOAT(11, 2) NOT NULL,
-
-    # clé étrangère
-
     id_type INT(11) NOT NULL,
     FOREIGN KEY (id_type) REFERENCES type(id_type)
 );
@@ -88,12 +79,8 @@ CREATE TABLE avis (
     commentaire TEXT NOT NULL,
     date_creation DATETIME DEFAULT CURRENT_TIMESTAMP,
     date_modification DATETIME NOT NULL,
-
-    # clé étrangère
-
     id_utilisateur INT(11) NOT NULL,
     FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE,
-
     id_emplacement INT(11) NOT NULL,
     FOREIGN KEY (id_emplacement) REFERENCES emplacement(id_emplacement)
 );
@@ -103,31 +90,23 @@ CREATE TABLE participation(
     data_heure DATETIME NOT NULL,
     nombre_adultes INT(11) NOT NULL DEFAULT 0,
     nombre_enfants INT(11) NOT NULL DEFAULT 0,
-
-    # clé étrangère
-
     id_activite INT(11) NOT NULL,
     FOREIGN KEY (id_activite) REFERENCES activite(id_activite),
-
     id_sejour INT(11) NOT NULL,
     FOREIGN KEY (id_sejour) REFERENCES sejour(id_sejour) ON DELETE CASCADE
 );
 
 # Relation table
 CREATE TABLE emplacement_sejour(
-
     id_emplacement INT(11) NOT NULL,
     FOREIGN KEY (id_emplacement) REFERENCES emplacement(id_emplacement),
-
     id_sejour INT(11) NOT NULL,
     FOREIGN KEY (id_sejour) REFERENCES sejour(id_sejour) ON DELETE CASCADE
 );
 
 CREATE TABLE emplacement_equipement(
-
     id_emplacement INT(11) NOT NULL,
     FOREIGN KEY (id_emplacement) REFERENCES emplacement(id_emplacement),
-
     id_equipement INT(11) NOT NULL,
     FOREIGN KEY (id_equipement) REFERENCES equipement(id_equipement)
 );
@@ -147,4 +126,3 @@ CREATE TABLE commande_code_promo(
     FOREIGN KEY (id_code_promo) REFERENCES code_promo(id_code_promo)
 );
 
-```
