@@ -5,7 +5,7 @@
 -- Récupérer l'ensemble des données afin de générer une facture pdf par rapport à un Id Client et l'Id d'une commande
 
 # Cette requetes est provoque duplication de données car ne peut récupérer qu'une activité par commande (or une commande peut contenir plusieurs activités)
-
+# Elle est mon premier jet et c'est un echec
 SELECT
 cp.code as promo_code, cp.valeur as promo_valeur, cp.unite as promo_unite,
 mp.nom as paiement,
