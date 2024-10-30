@@ -5,7 +5,7 @@
 CREATE TABLE mode_paiement(
     id_mode_paiement INT(11) AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(50) NOT NULL
-)
+);
 
 CREATE TABLE code_promo(
     id_code_promo INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -14,7 +14,7 @@ CREATE TABLE code_promo(
     valeur INT(11) NOT NULL,
     unite ENUM('pourcentage', 'euro') NOT NULL,
     nombre_utilisation INT(11) NOT NULL
-)
+);
 
 CREATE TABLE type (
     id_type INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -50,6 +50,13 @@ CREATE TABLE activite (
 
 ## Creation table avec clés étrangeres
 
+CREATE TABLE commande (
+    id_commande INT(11) AUTO_INCREMENT PRIMARY KEY,
+    id_mode_paiement INT(11) NOT NULL,
+    FOREIGN KEY (id_mode_paiement) REFERENCES mode_paiement(id_mode_paiement),
+    id_utilisateur INT(11) NOT NULL,
+    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE
+);
 
 CREATE TABLE sejour(
     id_sejour INT(11) AUTO_INCREMENT PRIMARY KEY,
@@ -111,13 +118,7 @@ CREATE TABLE emplacement_equipement(
     FOREIGN KEY (id_equipement) REFERENCES equipement(id_equipement)
 );
 
-CREATE TABLE commande (
-    id_commande INT(11) AUTO_INCREMENT PRIMARY KEY,
-    id_mode_paiement INT(11) NOT NULL,
-    FOREIGN KEY (id_mode_paiement) REFERENCES mode_paiement(id_mode_paiement),
-    id_utilisateur INT(11) NOT NULL,
-    FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur) ON DELETE CASCADE
-);
+
 
 CREATE TABLE commande_code_promo(
     id_commande INT(11) NOT NULL,
