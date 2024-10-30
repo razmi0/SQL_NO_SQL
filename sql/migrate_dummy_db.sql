@@ -1,3 +1,5 @@
+    
+    -- 6 id de mode de paiement
     INSERT INTO mode_paiement (nom) 
         VALUES ('Carte bancaire'),
                 ('Espèces'),
@@ -6,12 +8,15 @@
                 ('Bitcoin'),
                 ('PayPal');
 
+    -- 5 id de type d'emplacement
     INSERT INTO type (nom) 
         VALUES ('Tente'),
                 ('Caravane'),
                 ('Camping-car'),
                 ('Mobil-home'),
                 ('Bungalow');
+
+    -- 9 id d'équipement
     INSERT INTO equipement (nom)
         VALUES ('Electricité'),
                 ('Climatisation'),
@@ -22,6 +27,8 @@
                 ('Barbecue'),
                 ('Piscine'),
                 ('Télévision');
+    
+    -- 10 id d'activité
     INSERT INTO utilisateur (email,           nom,    prenom, role)
                 VALUES  ('usr1@gmail.com', 'Doe', 'John', 'client'),
                         ('usr2@gmail.com', 'Doe', 'Jane', 'client'),
@@ -44,10 +51,14 @@
                         ('salarie5+business@company.net', 'Harris', 'Michael', 'salarie'),
                         ('user19.personal@domain.org', 'Martin', 'Emily', 'client'),
                         ('admin4_unique@outlook.com', 'Adams', 'Ethan', 'admin');
+    
+    -- 3 id de code promo
     INSERT INTO code_promo (code, expiration, valeur, unite, nombre_utilisation)
                 VALUES ('PROMO10', '2024-12-31 23:59:59', 10, 'pourcentage', 100),
                         ('PROMO20', '2024-12-31 23:59:59', 20, 'pourcentage', 100),
                         ('PROMO30', '2024-12-31 23:59:59', 30, 'euro', 100);
+
+    -- 16 id d'emplacement
     INSERT INTO activite (nom,           description,         prix_adulte_hs,   prix_adulte_bs,   prix_enfant_hs,  prix_enfant_bs,    prix_animal,     duree)
                 VALUES ('Pêche',        'Pêche en rivière',     10.00,             15.00,          5.00,               10.00,          5.00,               120),
                     ('Randonnée',       'Randonnée en montagne', 10.00,        15.00,          5.00,               10.00,          5.00,               120),
@@ -59,6 +70,8 @@
                         ('Volleyball',  'Volleyball',        10.00,        15.00,          5.00,               10.00,          5.00,               120),
                         ('Ping-pong',   'Ping-pong',          10.00,        15.00,          5.00,               10.00,          5.00,               120),
                         ('Baby-foot',   'Baby-foot',          10.00,        15.00,          5.00,               10.00,          5.00,               120);
+    
+    -- 10 id de commande
     INSERT INTO commande (id_mode_paiement, id_utilisateur)
                 VALUES      (1,                 1),
                             (2,                 2),
@@ -70,6 +83,8 @@
                             (2,                 8),
                             (3,                 9),
                             (4,                 10);
+    
+    -- 10 id de sejour
     INSERT INTO sejour (nombre_adultes, nombre_enfants, date_debut,             date_fin,               nombre_voitures, nombre_animaux, id_commande)
                 VALUES      (2,             2,          '2024-06-10 12:00:00', '2024-07-10 12:00:00',       1,              1,              1),
                             (2,             2,          '2024-06-12 12:00:00', '2024-07-02 12:00:00',       1,              1,              2),
@@ -81,7 +96,8 @@
                             (2,             0,          '2024-07-25 16:00:00', '2024-08-05 18:00:00',        1,              1,              8),
                             (3,             2,          '2024-08-08 10:00:00', '2024-08-18 12:00:00',        2,              0,              9),
                             (1,             1,          '2024-08-21 14:00:00', '2024-09-01 16:00:00',        0,              1,              10);
-    
+
+    -- 16 id d'emplacement
     INSERT INTO emplacement (prix_hs,   prix_bs,    places,     caution,    id_type)
                 VALUES      (10.00,     15.00,      10,         50.00,      1),
                             (10.00,     15.00,      10,         50.00,      2),
@@ -100,6 +116,8 @@
                             (21.00,     27.00,      15,          75.00     , 3),
                             (11.00,     16.00,      10,          50.00     , 4),
                             (19.00,     23.00,      13,          65.00     , 5);
+
+    -- 14 id d'avis
     INSERT INTO avis (note,             commentaire,                                    date_modification,              id_utilisateur,             id_emplacement)
             VALUES  (4,         'Bon emplacement, mais un peu cher.',                   '2024-05-15 12:34:56',              1,                          2),
                     (5,         'Très bien situé, propre et calme.',                    '2024-06-28 09:12:34',              2,                          3),
@@ -116,6 +134,8 @@
                     (5,         'Très bien situé, propre et calme.',                    '2024-08-10 17:45:15',              3,                          14),
                     (2,         'Problème de réservation, pas très clair.',             '2024-07-25 19:30:00',              4,                          15),
                     (4,         'Bien situé, mais un peu bruyant la nuit.',             '2024-08-12 21:15:45',              5,                          16);
+
+    -- 15 id de participation
     INSERT INTO participation (date_heure,              nombre_adultes, nombre_enfants, id_activite,        id_sejour)                 
                     VALUES     ('2024-05-15 10:00:00',      2,               1,             1,                  1),
                                 ('2024-06-01 14:00:00',      3,            0,               2,                2),
@@ -133,6 +153,7 @@
                                 ('2024-08-25 14:00:00',      1,            1,               5,                4),
                                 ('2024-05-10 16:00:00',      2,            2,               6,                5),
                                 ('2024-06-10 20:00:00',      4,            1,               7,                6);
+    -- 10 id d'emplacement_sejour
     INSERT INTO emplacement_sejour (id_emplacement, id_sejour)
                             VALUES (1,                   1),
                                     (2,                  2),
@@ -143,7 +164,15 @@
                                     (7,                  7),
                                     (8,                  8),
                                     (9,                  9),
-                                    (10,                 10);
+                                    (10,                 10),
+                                    (11,                 1),
+                                    (12,                 2),
+                                    (13,                 3),
+                                    (14,                 4),
+                                    (15,                 5),
+                                    (16,                 6);
+
+        -- 16 id d'emplacement_equipement
         INSERT INTO emplacement_equipement (id_emplacement,id_equipement)
                                         VALUES
                                             (1,                  1),
@@ -172,6 +201,7 @@
                                             (15,                     6),
                                             (16,                     7),
                                             (16,                     8);
+        -- 5 id de commande_code_promo
         INSERT INTO commande_code_promo (id_commande, id_code_promo)
                                         VALUES
                                             (1,              1),
