@@ -18,9 +18,16 @@ Run those utilitary scripts in your mariadb session with :
 mysql -h 127.0.0.1 -P 3306 -u root  db_camping < path\to\file.sql
 ```
 
-- [init_db](./sql/init_db.sql) initialise les tables de la db
-- [migrate_dummy](./sql/migrate_dummy.sql) peuple la db
-- [truncate_db](./sql/truncate_db.sql) vide la db
+- [init_db](./sql/init_db.sql) initialise all tables
+- [migrate_dummy_db](./sql/migrate_dummy_db.sql) populate all tables with dummy data
+- [truncate_db](./sql/truncate_db.sql) empty all tables
+- [reset_db](./sql/reset_db.sql) drop and recreate the db
+
+Exemple :
+
+```bash
+mysql -h -h 127.0.0.1 -P 3306 -u root  db_camping < ./sql/init_db.sql
+```
 
 ## Liens
 
@@ -42,7 +49,10 @@ mysql -h 127.0.0.1 -P 3306 -u root  db_camping < path\to\file.sql
         ─ 2
     📁 sql
         ─ init_db.sql
-        ─ migrate_dummy.sql
+        ─ migrate_dummy_db.sql
+        ─ reset_db.sql
+        ─ truncate_db.sql
+    ─ .DS_Store
     ─ .gitignore
     ─ README.md
 ```
