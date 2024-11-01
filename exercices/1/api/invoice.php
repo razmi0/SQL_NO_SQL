@@ -7,7 +7,7 @@ require_once "../../../php/dao/Procs.php";
 use PHP\DAO\Connection;
 use PHP\DAO\Procs;
 
-$id = 1;
+$id = 5;
 $connection = new Connection("db_camping");
 $pdo = $connection->getPDO();
 $procs = new Procs($pdo);
