@@ -10,9 +10,6 @@ OR sejour.date_debut IS NULL;
 
 -- Récupérer l'ensemble des données afin de générer une facture pdf par rapport à un Id Client et l'Id d'une commande
 
-# ici mieux en plusieurs requetes :
--- pour une commande on a besoin de  : 
-
 -- 1. le code promo
 SELECT code_promo.code as code_promo, code_promo.valeur as code_promo_valeur, code_promo.unite as code_promo_unite
 FROM commande
@@ -44,3 +41,4 @@ LEFT JOIN sejour ON commande.id_commande = sejour.id_commande
 LEFT JOIN participation ON sejour.id_sejour = participation.id_sejour
 LEFT JOIN activite ON participation.id_activite = activite.id_activite
 WHERE commande.id_commande = 2
+
