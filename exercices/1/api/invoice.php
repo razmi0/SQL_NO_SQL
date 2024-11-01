@@ -1,13 +1,18 @@
 <?php
 
-
 require_once "../../../php/dao/Connection.php";
 require_once "../../../php/dao/Procs.php";
+require_once "../../../php/http/Request.php";
+require_once "../../../php/http/Response.php";
 
 use PHP\DAO\Connection;
 use PHP\DAO\Procs;
+use PHP\HTTP\Request;
+use PHP\HTTP\Response;
 
-$id = 5;
+
+$request = new Request();
+$id = $request->getQueryParam("id");
 $connection = new Connection("db_camping");
 $pdo = $connection->getPDO();
 $procs = new Procs($pdo);
@@ -22,5 +27,4 @@ $data_invoice = [
     "client" => $client
 ];
 
-header('Content-Type: application/json');
-echo json_encode($data_invoice, JSON_UNESCAPED_SLASHES);
+Response::send(["data" => $data_invoice]);

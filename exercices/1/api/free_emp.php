@@ -3,28 +3,25 @@
 
 require_once "../../../php/dao/Connection.php";
 require_once "../../../php/dao/Procs.php";
+require_once "../../../php/http/Request.php";
+require_once "../../../php/http/Response.php";
 
 use PHP\DAO\Connection;
 use PHP\DAO\Procs;
+use PHP\HTTP\Request;
+use PHP\HTTP\Response;
 
 
-class Response
-{
-    public static function send($data)
-    {
-        header('Content-Type: application/json');
-        echo json_encode($data, JSON_UNESCAPED_SLASHES);
-    }
-}
 
-
-$date_debut = "2024-07-01 00:00:00";
-$date_fin = "2024-07-10 00:00:00";
+$request = new Request();
+$date_debut = $request->getQueryParam("date_debut");
+$date_fin = $request->getQueryParam("date_fin");
 
 $connection = new Connection("db_camping");
 $pdo = $connection->getPDO();
 $procs = new Procs($pdo);
 
-$emplacement = $procs->getAvailableEmplacements($date_debut, $date_fin);
+[$emplacement] = $procs->getAvailableEmplacements($date_debut, $date_fin);
 
-Response::send(["data_free_emp" => $emplacement]);
+
+Response::send(["data" => $emplacement]);
