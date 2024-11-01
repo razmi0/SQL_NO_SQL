@@ -32,7 +32,7 @@
                 if (!response.ok) {
                     throw new Error('Error fetching data');
                 }
-                data = JSON.stringify(await response.json(), null, 2);
+                data = await JSON.stringify(await response.json(), null, 2);
             } catch (error) {
                 data = error.message;
 
@@ -71,14 +71,20 @@
 
         }
 
+        const formatDate = (date) => {
+            let withLocales = new Date(date).toLocaleString("en-CA");
+            withLocales = withLocales.replace(/,/g, '');
+            withLocales = withLocales.replace(/\//g, '-');
+            withLocales = withLocales.replace(/a.m.|p.m./g, '');
+            return withLocales.trim();
+        }
+
         const listeners = () => {
             // EMPLACEMENT
             //--
             dom.buttons.getData.emplacement.addEventListener('mousedown', () => {
-                const debut = new Date(dom.inputs.debut.value).toLocaleString();
-                const fin = new Date(dom.inputs.fin.value).toLocaleString();
-
-                console.log(debut, fin);
+                const debut = formatDate(dom.inputs.debut.value);
+                const fin = formatDate(dom.inputs.fin.value);
 
                 fetchData(urlEmplacement, dom.pres.emplacement, {
                     date_debut: debut,
