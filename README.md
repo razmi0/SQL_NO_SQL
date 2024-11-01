@@ -26,7 +26,7 @@ mysql -h 127.0.0.1 -P 3306 -u root  db_camping < path\to\file.sql
 Exemple :
 
 ```bash
-mysql -h -h 127.0.0.1 -P 3306 -u root  db_camping < ./utils/sql/init_db.sql
+mysql -h 127.0.0.1 -P 3306 -u root  db_camping < ./utils/sql/init_db.sql
 ```
 
 ## Liens
