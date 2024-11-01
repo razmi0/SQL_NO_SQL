@@ -18,15 +18,14 @@
     </style>
     <script type="module">
         const baseUrl = 'http://localhost/sql_no_sql/api';
-        const urlFacture = `${baseUrl}/commande/facture/`;
-        const urlEmplacement = `${baseUrl}/emplacements/free/`;
+        const urlFacture = `${baseUrl}/commande/facture`;
+        const urlEmplacement = `${baseUrl}/emplacements/free`;
 
         const fetchData = async (url, element, payload = null) => {
             let data = null;
             if (payload) {
                 url = new URL(url);
                 url.search = new URLSearchParams(payload).toString();
-                console.log(url);
             }
             try {
                 const response = await fetch(url);
@@ -124,7 +123,7 @@
     <hr />
     <header>
         <h4>Facture</h4>
-        <small>Display all the data you need to make an invoice from a command</small>
+        <small>Afficher les données relative à une commande pour facture :</small>
     </header>
     <fieldset role="group">
         <div>
