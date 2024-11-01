@@ -1,15 +1,9 @@
 <?php
 
-require_once "../../../php/dao/Connection.php";
-require_once "../../../php/dao/Procs.php";
-require_once "../../../php/http/Request.php";
-require_once "../../../php/http/Response.php";
+require_once "../../../vendor/autoload.php";
 
-use PHP\DAO\Connection;
-use PHP\DAO\Procs;
-use PHP\HTTP\Request;
-use PHP\HTTP\Response;
-
+use SNoS\DAO\{Connection, Procs};
+use SNoS\HTTP\{Request, Response};
 
 $request = new Request();
 $id = $request->getQueryParam("id");

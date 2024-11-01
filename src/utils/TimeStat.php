@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Utils;
+namespace SNoS\Utils;
 
 class TimeStat
 {

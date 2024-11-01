@@ -43,21 +43,39 @@ mysql -h 127.0.0.1 -P 3306 -u root  db_camping < ./utils/sql/init_db.sql
 ## Repo structure
 
 ```plaintext
-📁 SQL_NO_SQL
+📁 sql_no_sql
     📁 cours
         ─ pdf_conception_camping_TP.pdf
         ─ sql.jpeg
     📁 exercices
         📁 1
+            📁 api
+                ─ free_emp.php
+                ─ invoice.php
             ─ consigne.md
             ─ devoir.sql
-        ─ 2
+            ─ procs.sql
+            ─ run_procs.php
+        📁 2
     📁 sql
         ─ init_db.sql
         ─ migrate_dummy_db.sql
         ─ reset_db.sql
         ─ truncate_db.sql
-    ─ .DS_Store
+    📁 src
+        📁 dao
+            ─ Connection.php
+            ─ Procs.php
+        📁 http
+            ─ Request.php
+            ─ Response.php
+        📁 utils
+            ─ TimeStat.php
     ─ .gitignore
+    ─ .htaccess
+    ─ composer.json
+    ─ composer.lock
+    ─ index.php
     ─ README.md
+    ─ watch_error.sh
 ```

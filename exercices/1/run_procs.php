@@ -1,13 +1,11 @@
 <?php
 
+use SNoS\DAO\Connection;
+use SNoS\DAO\Procs;
+use SNoS\Utils\TimeStat;
 
-require_once "./php/dao/Connection.php";
-require_once "./php/dao/Procs.php";
-require_once "./php/utils/TimeStat.php";
+require_once "../../vendor/autoload.php";
 
-use PHP\DAO\Connection;
-use PHP\DAO\Procs;
-use PHP\Utils\TimeStat;
 
 $id = 5;
 $date_debut = "2024-07-01 00:00:00";

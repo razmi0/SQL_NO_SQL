@@ -1,0 +1,18 @@
+{
+  "name": "thomascuesta/sql_no_sql",
+  "description": "SQL and NoSQL database abstraction layer",
+  "autoload": {
+    "psr-4": {
+      "SNoS\\HTTP\\": "src/http",
+      "SNoS\\DAO\\": "src/dao",
+      "SNoS\\Utils\\": "src/utils"
+    }
+  },
+  "authors": [
+    {
+      "name": "razmiO",
+      "email": "thomas.cuesta31@gmail.com"
+    }
+  ],
+  "require": {}
+}

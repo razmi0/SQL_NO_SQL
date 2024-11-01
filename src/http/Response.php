@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\HTTP;
+namespace SNoS\HTTP;
 
 class Response
 {
