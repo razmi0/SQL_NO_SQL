@@ -1,12 +1,16 @@
 -- Récupérer l'ensemble des emplacements disponibles pour une période définie
 
-SELECT emplacement.id_emplacement
+SELECT emplacement.id_emplacement, sejour.date_debut, sejour.date_fin
 FROM emplacement
 LEFT JOIN emplacement_sejour ON emplacement.id_emplacement = emplacement_sejour.id_emplacement
 LEFT JOIN sejour ON emplacement_sejour.id_sejour = sejour.id_sejour
-WHERE (sejour.date_fin < '2024-07-01' OR sejour.date_debut > '2024-07-10')
+WHERE (sejour.date_fin < '2024-06-01' OR sejour.date_debut > '2024-07-01')
 OR sejour.date_debut IS NULL;
 
+DELIMITER //
+
+
+DELIMITER ;
 
 -- Récupérer l'ensemble des données afin de générer une facture pdf par rapport à un Id Client et l'Id d'une commande
 
