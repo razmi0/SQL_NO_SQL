@@ -2,6 +2,7 @@
 
 namespace PHP\DAO;
 
+use DateTime;
 use Exception;
 use PDO;
 
@@ -34,13 +35,13 @@ class Procs
 
     /**
      * getAvailableEmplacements
-     * @param date_debut DATETIME
-     * @param date_fin DATETIME
+     * @param date_debut string YYYY-MM-DD HH:MM:SS
+     * @param date_fin string YYYY-MM-DD HH:MM:SS
      */
 
     public function getAvailableEmplacements($date_debut, $date_fin)
     {
-        return $this->runProc("CALL getAvailableEmplacements($date_debut, $date_fin);", $this->pdo);
+        return $this->runProc("CALL getAvailableEmplacements(\"$date_debut\", \"$date_fin\");", $this->pdo);
     }
 
     /**
