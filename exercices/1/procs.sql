@@ -4,16 +4,17 @@
 -- -- Récupérer l'ensemble des emplacements disponibles pour une période définie
 --
 --
-CREATE PROCEDURE getAvailableEmplacements( IN in_date_debut DATE, IN in_date_fin DATE)
+DELIMITER //
+CREATE PROCEDURE getAvailableEmplacements(IN in_date_debut DATETIME, IN in_date_fin DATETIME)
 BEGIN
-SELECT emplacement.id_emplacement
-FROM emplacement
-LEFT JOIN emplacement_sejour ON emplacement.id_emplacement = emplacement_sejour.id_emplacement
-LEFT JOIN sejour ON emplacement_sejour.id_sejour = sejour.id_sejour
-WHERE (sejour.date_fin < '2024-07-01' OR sejour.date_debut > '2024-07-10')
-OR sejour.date_debut IS NULL;
-END;
---
+  SELECT emplacement.id_emplacement, sejour.date_debut, sejour.date_fin
+  FROM emplacement
+  LEFT JOIN emplacement_sejour ON emplacement.id_emplacement = emplacement_sejour.id_emplacement
+  LEFT JOIN sejour ON emplacement_sejour.id_sejour = sejour.id_sejour
+  WHERE (sejour.date_fin < in_date_debut OR sejour.date_debut > in_date_fin)
+  OR sejour.date_debut IS NULL;
+END //
+DELIMITER ;
 --
 --
 --
@@ -25,6 +26,7 @@ END;
 --
 --
 
+DELIMITER //
 CREATE PROCEDURE getInvoiceFromCommandId( IN in_command_id INT)
 BEGIN
 
@@ -78,3 +80,5 @@ SELECT * FROM temp_activite;
 SELECT * FROM temp_utlisateurs;
 
 END
+
+DELIMITER ;
